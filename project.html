@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <style>
+    *{
+        scroll-behavior: smooth;
+    }
+    body {
+        background-color: rgb(12, 24, 41);
+        min-height: 100vh;
+     }
+     header {
+    background-color: rgb(17, 34, 57);
+    border-radius: 8px;
+}
+
+        .nav-logo {
+           
+            margin-left: 20px;
+            border:none;
+        }
+       header {
+            display : flex;
+            align-items: center;
+            border-bottom: 1px solid #2a3d59;
+        }
+        .nav-link1, .nav-link2, .nav-link3, .nav-link4 {
+            color: rgba(255, 255, 255, 0.719);
+            text-decoration: none;
+            margin-right: 20px;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .nav-link1:hover, .nav-link2:hover, .nav-link3:hover, .nav-link4:hover,.nav-link5:hover {
+            color: rgb(183, 130, 32);
+        }
+        .nav-link1 {
+            margin-left: 200px;
+        }
+       .nav-link5 {
+        color:rgb(30, 162, 87);
+        margin-left: 3px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       }
+      .circ {
+       background-color: rgb(30, 162, 87);
+       margin-left: 200px;
+       height: 10px;
+       width: 10px;
+       border-radius: 50%;
+       border: none;
+       box-sizing: border-box;
+}
+.circ:hover {
+    background-color: rgb(183, 130, 32);
+}
+.clock {
+    color: white;
+    margin-left: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.dis{
+    background-color: rgb(47, 128, 215);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width:100px;
+    padding-left: 14px;
+    padding-right: 18px;
+    padding-top: 16px;
+    padding-bottom:22px;
+    border-radius: 6px;
+    border:none;
+    margin-left:20px;
+    font-size: 17px;
+}
+.dis:hover{
+   background-color: white;
+   color:rgb(47, 128, 215);
+   border-color: rgb(47, 128, 215);
+   border-width: 1px;
+}
+.dis:active{
+opacity: 0.75;
+}
+.a ,.b,.c,.d{
+    font-size:20px ;
+    color:rgb(49, 117, 184)
+}
+.b1,.b2 ,.b3,.b4{
+    height:140px;
+margin-top:30px;
+width: 300px;
+border-radius: 8px;
+background-color: rgb(17, 34, 57);
+border:none;
+margin-left:45px;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+color:white;
+font-size:medium;
+transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+.b1:hover,.b2:hover ,.b3:hover,.b4:hover {
+    background-color: rgb(237, 234, 234);
+    color:rgb(17, 34, 57);
+}
+.b1:active,.b2:active ,.b3:active,.b4:active {
+    opacity: 0.40;
+}
+.fleet,.moni{
+    color:white;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left:10px;
+
+}
+.live {
+    background-color: rgb(50, 97, 50);
+    color:rgb(80, 192, 80);
+    margin-left: 1160px;
+    padding-right: 10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-left:10px;
+    border:none;
+    border-radius:4px;
+    height:fit-content;
+    width:fit-content;
+    margin-top:20px;
+   
+}
+.live:hover {
+    opacity:0.7;
+}
+.temp {
+    display: flex;
+}
+.moni{
+    margin-top:10px;
+    color:rgba(241, 235, 235, 0.981);
+}
+/* Fleet Management Container (Matches your b1-b4 button styling) */
+.fleet-box {
+    background-color: rgb(17, 34, 57);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 20px 45px 40px 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    border: 1px solid rgba(49, 117, 184, 0.25);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fleet-box:hover {
+    border-color: rgb(47, 128, 215);
+}
+
+/* Header & Search Input inside the box */
+.fleet-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fleet-box-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.fleet-box-header p {
+    margin: 4px 0 0; 
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.rover-search {
+    background-color: rgb(12, 24, 41);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: none;
+    width: 220px;
+}
+
+.rover-search:focus {
+    border-color: rgb(47, 128, 215);
+}
+
+/* Table Styling */
+.fleet-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.fleet-table th {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fleet-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Make rows feel like clickable buttons */
+.fleet-table tbody tr {
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.fleet-table tbody tr:hover {
+    background-color: rgba(47, 128, 215, 0.25);
+}
+
+.fleet-table tbody tr.selected-row {
+    background-color: rgba(47, 128, 215, 0.35);
+    outline: 1px solid rgb(47, 128, 215);
+}
+
+.status-online {
+    color: rgb(30, 162, 87);
+    font-weight: 600;
+}
+
+.fleet-box-footer {
+    margin-top: 15px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+    </style>
+    <header>
+         <img class="nav-logo" src="Netra.png">
+   <a class="nav-link1" href="dashboard.html">
+    Dashboard
+</a>
+    <a class="nav-link2" href="fleet.html">
+        Fleet
+    </a>
+    <a class="nav-link3" href="Telemetry.html">
+        Telemetry
+    </a>
+    <a class="nav-link4" href="Alerts.html">
+        Alerts
+    </a>
+   <button class="circ">
+   </button>
+    <h4 class="nav-link5">System online
+
+    </h4>
+     <div class="clock" id="clock">
+
+     </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); 
+    </script>
+    <button class="dis">
+        +Dispach
+    </button>
+  </header>
+  <button class="b1">
+    Rover online<br><br>
+    <div class="a">
+    6/6<br><br>
+     </div>
+    Active rover units<br>
+  </button>
+  <button class="b2">
+    Average Battery<br><br>
+    <div class="b">
+        1%<br><br>
+    </div>
+    Fleet Battery Level<br>
+  </button>
+  <button class="b3">
+    Open Alerts<br><br>
+    <div class="c">
+        10<br><br>
+    </div>
+    Requires Attention<br>
+  </button>
+  <button class="b4">
+    Distance Travelled<br><br>
+    <div class="d">
+        15.6 Km<br><br>
+    </div>
+    Total Simulated Distance<br>
+  </button>
+<div class="temp">
+  <h2 class="fleet">
+Fleet Overview
+</h2>
+    <button class="live">
+        . Live Monitoring
+    </button>
+</div>
+<h5 class="moni">
+    Moniter all campus rover activities
+</h5>
+
+
+
+<section class="fleet-box">
+    <div class="fleet-box-header">
+        <div>
+            <h3>Fleet Management</h3>
+            <p>Campus rover information</p>
+        </div>
+        <input type="text" class="rover-search" id="roverSearch" placeholder="Search rover or zone..." onkeyup="filterRovers()">
+    </div>
+
+    <table class="fleet-table" id="fleetTable">
+        <thead>
+            <tr>
+                <th>Rover ID</th>
+                <th>Zone</th>
+                <th>Status</th>
+                <th>Battery</th>
+                <th>Temperature</th>
+                <th>Sonar Distance</th>
+                <th>Speed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="selected-row" onclick="selectRover(this)">
+                <td>R-01</td>
+                <td>Library</td>
+                <td class="status-online">Online</td>
+                <td>25%</td>
+                <td>26.6°C</td>
+                <td>150 cm</td>
+                <td>1.2 m/s</td>
+            </tr>
+            <tr onclick="selectRover(this)">
+                <td>R-02</td>
+                <td>Admin Block</td>
+                <td class="status-online">Online</td>
+                <td>9%</td>
+                <td>43.0°C</td>
+                <td>72 cm</td>
+                <td>0.4 m/s</td>
+            </tr>
+            <tr onclick="selectRover(this)">
+                <td>R-03</td>
+                <td>R&amp;D Block</td>
+                <td class="status-online">Online</td>
+                <td>0%</td>
+                <td>39.5°C</td>
+                <td>197 cm</td>
+                <td>1.8 m/s</td>
+            </tr>
+            <tr onclick="selectRover(this)">
+                <td>R-04</td>
+                <td>Hostel Gate</td>
+                <td class="status-online">Online</td>
+                <td>20%</td>
+                <td>38.0°C</td>
+                <td>48 cm</td>
+                <td>0.1 m/s</td>
+            </tr>
+            <tr onclick="selectRover(this)">
+                <td>R-05</td>
+                <td>Food Court</td>
+                <td class="status-online">Online</td>
+                <td>0%</td>
+                <td>34.9°C</td>
+                <td>147 cm</td>
+                <td>0.1 m/s</td>
+            </tr>
+            <tr onclick="selectRover(this)">
+                <td>R-06</td>
+                <td>Sports Arena</td>
+                <td class="status-online">Online</td>
+                <td>23%</td>
+                <td>42.5°C</td>
+                <td>205 cm</td>
+                <td>1.6 m/s</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="fleet-box-footer">
+        Select a rover row to view its sensor readings and telemetry history.
+    </div>
+</section>
+
+<script>
+    // Highlights whichever rover row you click
+    function selectRover(row) {
+        const rows = document.querySelectorAll('#fleetTable tbody tr');
+        rows.forEach(r => r.classList.remove('selected-row'));
+        row.classList.add('selected-row');
+    }
+
+    // Makes the search bar filter rows by Rover ID or Zone
+    function filterRovers() {
+        const query = document.getElementById('roverSearch').value.toLowerCase();
+        const rows = document.querySelectorAll('#fleetTable tbody tr');
+        rows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(query) ? '' : 'none';
+        });
+    }
+</script>
+</body>
+</html>
